@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Countdown Timer</title>
+<style>
+
+#clock {
+  font-size: 150px;
+  width: 800px;
+  margin: 200px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 25px;
+  color:rgb(235, 19, 19);
+  background-color:black;
+  }
+</style>
+</head>
+<body>
+
+  
+  <div id="clock">08:10:55</div>
+  
+
+<script>
+setInterval(showTime,2000);
+function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    am_pm = "AM";
+  
+    if (hour > 12) {
+        hour -= 12;
+        
+        am_pm = "PM";
+    }
+    if (hour == 0) {
+        hour = 12;
+        am_pm = "AM";
+    }
+  
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+  
+    let cu = hour + ":" + min + ":" + sec + am_pm;
+  
+    document.getElementById("clock").innerHTML = cu;
+}
+showTime();
+
+</script>
+</body>
+</html>
+
+<!-- 
+
+new Date(["2020-06-19", "17:13"])
+ -->
